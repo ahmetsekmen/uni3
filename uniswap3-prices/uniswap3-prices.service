@@ -1,0 +1,16 @@
+[Unit]
+Description=UniswapV3 tokens price API
+After=network.target
+
+[Service]
+Environment=NODE_PORT=5001
+Environment=ETH_NODE_URL=ws://127.0.0.1:8546
+Type=simple
+User=root
+WorkingDirectory=/opt/ethereum/uniswap3-prices
+ExecStart=/usr/bin/node index.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
